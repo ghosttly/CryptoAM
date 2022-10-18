@@ -21,7 +21,7 @@ export const ChartSVG: React.FC<{ color: string }> = ({ color }) => {
         stroke={color}
         strokeWidth="2"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M16 8V16"

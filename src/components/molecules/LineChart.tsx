@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Line } from "react-chartjs-2";
-import "chart.js/auto"; // ADD THIS
+import "chart.js/auto";
 
 interface LineChartProps {
   coinHistory: any;
@@ -14,8 +14,8 @@ export const LineChart: React.FC<LineChartProps> = ({
   currentPrice,
   coinName,
 }) => {
-  const [x, setX] = useState<any>();
-  const [y, setY] = useState<any>();
+  const [x, setX] = useState<any>([]);
+  const [y, setY] = useState<any>([]);
   useEffect(() => {
     let coinPrice = [];
     let coinTimestamp = [];
@@ -43,24 +43,9 @@ export const LineChart: React.FC<LineChartProps> = ({
         data: x,
         borderWidth: 0.5,
 
-        // backgroundColor: "#0071bd",
         borderColor: "#0071bd",
       },
     ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top" as const,
-        reverse: true,
-      },
-      title: {
-        display: true,
-        text: "Chart.js Line Chart",
-      },
-    },
   };
 
   return (
