@@ -35,7 +35,6 @@ const Cryptocurrencies: NextPage = () => {
     setIsLoading(true);
     try {
       const resp = await getCoins("50", String(offset + 50));
-
       if (resp) {
         setCoins((prev) => [...prev, ...resp]);
         setOffset((prev) => prev + 50);
