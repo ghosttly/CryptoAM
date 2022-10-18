@@ -148,9 +148,10 @@ export const CoinDetails: React.FC<{
       <section>
         <LineChart coinHistory={coinDataForChart} />
       </section>
-      <section className="coinDetails border-b border-cyan-2 pb-4 mb-10">
-        {coinData && HTMLReactParser(coinData?.description)}
-      </section>
+      <section
+        className="coinDetails border-b border-cyan-2 pb-4 mb-10"
+        dangerouslySetInnerHTML={{ __html: coinData?.description }}
+      ></section>
       <section>
         <h2 className="text-5xl text-cyan-6 text-center mb-4">Useful Links</h2>
         <div className="grid grid-cols-3 place-items-center">

@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useCryptoApi } from "api";
 import { CoinCard } from "components";
 import { useCrypto } from "containers";
-import { spawn } from "child_process";
-
 const Cryptocurrencies: NextPage = () => {
   const { getCoins } = useCryptoApi();
   const { globalStats } = useCrypto();
