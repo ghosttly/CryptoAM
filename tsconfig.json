@@ -20,7 +20,8 @@
       "layouts": ["./src/layouts"],
       "hooks": ["./src/hooks"],
       "containers": ["./src/containers"],
-      "types": ["./src/types"]
+      "types": ["./src/types"],
+      "api":["./src/api"]
   },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
