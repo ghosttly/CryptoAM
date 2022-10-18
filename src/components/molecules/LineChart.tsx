@@ -47,7 +47,7 @@ export const LineChart: React.FC<LineChartProps> = ({
 
   return (
     <div>
-      <Line data={data} />
+      {x.length > 1 && y.length > 1 ? <Line data={data} /> : "Loading.."}
     </div>
   );
 };
