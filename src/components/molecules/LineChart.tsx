@@ -25,9 +25,7 @@ export const LineChart: React.FC<LineChartProps> = ({
     }
 
     for (let i = 0; i < coinHistory?.history?.length; i++) {
-      coinTimestamp.push(
-        new Date(coinHistory?.history[i].timestamp * 1000).toLocaleDateString()
-      );
+      coinTimestamp.push(new Date(coinHistory?.history[i].timestamp * 1000));
     }
     coinPrice.reverse();
     coinTimestamp.reverse();
@@ -42,7 +40,6 @@ export const LineChart: React.FC<LineChartProps> = ({
         label: "Price In USD",
         data: x,
         borderWidth: 0.5,
-
         borderColor: "#0071bd",
       },
     ],
