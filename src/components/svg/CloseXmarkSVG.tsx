@@ -1,5 +1,4 @@
 import React from "react";
-
 export const CloseXmarkSVG: React.FC<{ color: string }> = ({ color }) => {
   return (
     <svg
