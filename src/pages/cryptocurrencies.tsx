@@ -45,7 +45,7 @@ const Cryptocurrencies: NextPage = () => {
     <>
       <div className="sticky z-[200]  sm:w-1/4 mx-auto top-0">
         <input
-          className="p-2 px-4 bg-transparent border border-cyan-2 rounded-2xl mx-auto  block mt-6 text-cyan-7"
+          className="p-2 px-4 bg-transparent border border-cyan-2 rounded-2xl mx-auto bg-cyan-2   block mt-6 text-cyan-7"
           placeholder="Search coin.."
           type="text"
           value={searchParam}
