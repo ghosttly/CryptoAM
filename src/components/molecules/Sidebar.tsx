@@ -15,13 +15,19 @@ export const Sidebar = () => {
         <div className="h-16 flex flex-col items-center">
           <img className="h-full" src="/images/png/cryptocurrency.png" alt="" />
           <Link href="/">
-            <a className="text-cyan-7 ml-2">Crypto-AM</a>
+            <a
+              onClick={() => setOpen((prev) => !prev)}
+              className="text-cyan-7 ml-2"
+            >
+              Crypto-AM
+            </a>
           </Link>
         </div>
 
         <nav className="flex flex-col  justify-between text-cyan-7 text-center pb-10 ">
           <Link href="/">
             <a
+              onClick={() => setOpen((prev) => !prev)}
               className={`hover:scale-125 transition-transform py-4 ${
                 router.pathname === "/" ? "scale-125 text-cyan-10" : ""
               }`}
@@ -31,6 +37,7 @@ export const Sidebar = () => {
           </Link>
           <Link href="/cryptocurrencies">
             <a
+              onClick={() => setOpen((prev) => !prev)}
               className={`hover:scale-125 transition-transform py-4 ${
                 router.pathname.includes("cryptocurrencies")
                   ? "scale-125 text-cyan-10"
@@ -43,6 +50,7 @@ export const Sidebar = () => {
 
           <Link href="/news">
             <a
+              onClick={() => setOpen((prev) => !prev)}
               className={`hover:scale-125 transition-transform py-4 ${
                 router.pathname.includes("news") ? "scale-125 text-cyan-10" : ""
               }`}
