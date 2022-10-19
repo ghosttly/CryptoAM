@@ -95,7 +95,7 @@ export const CoinDetails: React.FC<{
     },
   ];
   return (
-    <div className="mt-16 pb-10 ">
+    <div className="mt-16 pb-10  overflow-x-hidden">
       <div className="flex justify-between w-full mb-10">
         <h1 style={{ color: coinData?.color }} className="text-4xl">
           {coinData?.name}
@@ -107,7 +107,7 @@ export const CoinDetails: React.FC<{
         <div className="flex w-max flex-col ">
           {stats.map((stats, i) => (
             <div
-              className="flex items-center my-4 text-2xl border-b border-cyan-2 pb-2  text-cyan-6"
+              className="flex items-center my-4 sm:text-2xl border-b border-cyan-2 pb-2  text-cyan-6"
               key={i}
             >
               <span className="mr-4 ">{stats.icon}</span>
@@ -119,30 +119,32 @@ export const CoinDetails: React.FC<{
         <div className="flex w-max flex-col self-center">
           {genericStats.map((stats, i) => (
             <div
-              className="flex items-center  my-4 text-2xl text-cyan-6 border-b border-cyan-2 pb-2 "
+              className="flex items-center  my-4 sm:text-2xl text-cyan-6 border-b border-cyan-2 pb-2 "
               key={i}
             >
               <span className="mr-4">{stats.icon}</span>
-              <span className="mr-8">{stats.title}</span>
+              <span className=" mr-2 sm:mr-8">{stats.title}</span>
               <span className="text-cyan-8">{stats.value as string}</span>
             </div>
           ))}
         </div>
       </main>
 
-      <div>
+      <div className="flex flex-col sm:flex-row">
         <span className="text-cyan-5 text-2xl mr-4">Time Period</span>
-        {time.map((t, i) => (
-          <button
-            className={`mx-2  ${
-              timePeriod === t ? "scale-150 text-cyan-6" : "text-cyan-3"
-            }`}
-            onClick={() => setTimePeroid(t)}
-            key={i}
-          >
-            {t}
-          </button>
-        ))}
+        <div>
+          {time.map((t, i) => (
+            <button
+              className={`mx-2  ${
+                timePeriod === t ? "scale-150 text-cyan-6" : "text-cyan-3"
+              }`}
+              onClick={() => setTimePeroid(t)}
+              key={i}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
       </div>
 
       <section>
@@ -154,7 +156,7 @@ export const CoinDetails: React.FC<{
       ></section>
       <section>
         <h2 className="text-5xl text-cyan-6 text-center mb-4">Useful Links</h2>
-        <div className="grid grid-cols-3 place-items-center">
+        <div className="grid sm:grid-cols-3 sm:place-items-center">
           {coinData &&
             coinData?.links.map(
               (link: { [key: string]: string }, i: number) => (

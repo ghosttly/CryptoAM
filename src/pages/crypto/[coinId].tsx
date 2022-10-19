@@ -15,8 +15,6 @@ const Coin: NextPage = () => {
   const [coinIdq, setCoinId] = useState("");
   useEffect(() => {
     const { coinId } = router.query;
-    console.log(coinId);
-
     if (coinId) {
       setCoinId(coinId as string);
     }
