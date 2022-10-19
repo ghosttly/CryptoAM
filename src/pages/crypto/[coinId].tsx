@@ -6,35 +6,41 @@ import { CoinDetails } from "components";
 
 const Coin: NextPage = () => {
   const router = useRouter();
-  const { coinId } = router.query;
+
   const { getCoinDetails, getCoinDataForChart } = useCryptoApi();
   const [coinData, setCoinData] = useState<any>();
   const [coinDataForChart, setCoinDataForChart] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [timePeriod, setTimePeriod] = useState("3h");
+  const [coinIdq, setCoinId] = useState("");
+  useEffect(() => {
+    const { coinId } = router.query;
+    console.log(coinId);
+
+    if (coinId) {
+      setCoinId(coinId as string);
+    }
+  }, [router.query]);
 
   useEffect(() => {
-    setIsLoading(true);
     try {
       (async () => {
-        if (coinId) {
-          const details = await getCoinDetails(coinId as string);
+        if (coinIdq) {
+          const details = await getCoinDetails(coinIdq as string);
           if (details) setCoinData(details);
         }
       })();
     } catch {}
-    setIsLoading(false);
-  }, [router.query]);
+  }, [coinIdq]);
   useEffect(() => {
     setCoinDataForChart([]);
     setIsLoading(true);
     try {
       (async () => {
-        const chartData = await getCoinDataForChart(
-          coinId as string,
-          timePeriod
-        );
-        if (chartData) setCoinDataForChart(chartData);
+        if (coinIdq) {
+          const chartData = await getCoinDataForChart(coinIdq, timePeriod);
+          if (chartData) setCoinDataForChart(chartData);
+        }
       })();
     } catch {}
     setIsLoading(false);

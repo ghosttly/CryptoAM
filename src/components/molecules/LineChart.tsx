@@ -5,32 +5,31 @@ import "chart.js/auto";
 
 interface LineChartProps {
   coinHistory: any;
-  currentPrice?: any;
-  coinName?: any;
 }
 
-export const LineChart: React.FC<LineChartProps> = ({
-  coinHistory,
-  currentPrice,
-  coinName,
-}) => {
+export const LineChart: React.FC<LineChartProps> = ({ coinHistory }) => {
   const [x, setX] = useState<any>([]);
   const [y, setY] = useState<any>([]);
   useEffect(() => {
     let coinPrice = [];
     let coinTimestamp = [];
+    if (coinHistory) {
+      for (let i = 0; i < coinHistory?.history?.length; i++) {
+        coinPrice.push(coinHistory?.history[i].price);
+      }
 
-    for (let i = 0; i < coinHistory?.history?.length; i++) {
-      coinPrice.push(coinHistory?.history[i].price);
+      for (let i = 0; i < coinHistory?.history?.length; i++) {
+        coinTimestamp.push(
+          new Date(
+            coinHistory?.history[i].timestamp * 1000
+          ).toLocaleDateString()
+        );
+      }
+      coinPrice.reverse();
+      coinTimestamp.reverse();
+      setX(coinPrice);
+      setY(coinTimestamp);
     }
-
-    for (let i = 0; i < coinHistory?.history?.length; i++) {
-      coinTimestamp.push(new Date(coinHistory?.history[i].timestamp * 1000));
-    }
-    coinPrice.reverse();
-    coinTimestamp.reverse();
-    setX(coinPrice);
-    setY(coinTimestamp);
   }, [coinHistory]);
 
   const data = {
