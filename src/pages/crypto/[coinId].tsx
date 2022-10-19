@@ -11,12 +11,13 @@ const Coin: NextPage = () => {
   const [coinData, setCoinData] = useState<any>();
   const [coinDataForChart, setCoinDataForChart] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [timePeriod, setTimePeriod] = useState("3h");
+  const [timePeriod, setTimePeriod] = useState("");
   const [coinIdq, setCoinId] = useState("");
   useEffect(() => {
     const { coinId } = router.query;
     if (coinId) {
       setCoinId(coinId as string);
+      setTimePeriod("3h");
     }
   }, [router.query]);
 
