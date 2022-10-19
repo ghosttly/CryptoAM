@@ -110,9 +110,15 @@ export const CoinDetails: React.FC<{
               className="flex items-center my-4 sm:text-2xl border-b border-cyan-2 pb-2  text-cyan-6"
               key={i}
             >
-              <span className="mr-4 ">{stats.icon}</span>
-              <span className="mr-8">{stats.title}</span>
-              <span className="text-cyan-8">{stats.value as string}</span>
+              <span className="mr-4 ">
+                {(!!stats.icon && stats.icon) || ""}
+              </span>
+              <span className="mr-8">
+                {(!!stats.title && stats.title) || ""}
+              </span>
+              <span className="text-cyan-8">
+                {(!!(stats.value as string) && stats.value) || ""}
+              </span>
             </div>
           ))}
         </div>
@@ -122,9 +128,13 @@ export const CoinDetails: React.FC<{
               className="flex items-center  my-4 sm:text-2xl text-cyan-6 border-b border-cyan-2 pb-2 "
               key={i}
             >
-              <span className="mr-4">{stats.icon}</span>
-              <span className=" mr-2 sm:mr-8">{stats.title}</span>
-              <span className="text-cyan-8">{stats.value as string}</span>
+              <span className="mr-4">{(!!stats.icon && stats.icon) || ""}</span>
+              <span className=" mr-2 sm:mr-8">
+                {(!!stats.title && stats.title) || ""}
+              </span>
+              <span className="text-cyan-8">
+                {(!!(stats.value as string) && stats.value) || ""}
+              </span>
             </div>
           ))}
         </div>
